@@ -35,7 +35,6 @@ At the begining of the script you have to
 
 1. Create a `virtualenv` 
 You may need to replace python with python3 on some platforms.
-
 ```
 python -m venv arissenv 
 source arissenv/bin/activate
