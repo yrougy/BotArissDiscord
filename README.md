@@ -39,7 +39,7 @@ You may need to replace python with python3 on some platforms.
 python -m venv arissenv 
 source arissenv/bin/activate
 ```
-1. You install the requirements
+2. You install the requirements
 ```
 pip install -r requirements.txt
 ```
