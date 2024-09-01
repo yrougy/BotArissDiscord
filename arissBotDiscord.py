@@ -20,6 +20,7 @@ BotKEY = 'API Key for the bot'
 #
 Mode = 'net' # local to not send to discord
 Location = 'Europe' # FM over Europe only
+CalendarURL=''
 # END OF CONFIGURATION
 #######################################################
 
@@ -38,7 +39,7 @@ async def on_ready():
 
 @client.event
 async def send_msg():
-    ics_url = 'https://calendar.google.com/calendar/ical/39fpkdtnqhma60vk5nd0ndur4o%40group.calendar.google.com/public/basic.ics'
+    ics_url = CalendarURL
     events = get_events_from_ics(ics_url)
     formatted_events = ret_upcoming_events(events)
     if not events:

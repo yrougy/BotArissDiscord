@@ -23,6 +23,7 @@ You will need:
     - On the left menu choose **Bot**
     - Click on **Reset Token** and Copy and save your Token. It won't show again
     - In the **Privileged Gateway Intents** part of the page, check the **Message Content Intent** switch so the bot is allowed to send messages.
+1. The URL of the ICS calendar ( I got mine from https://www.amsat-on.be/ )
 
 ### Configuration of the script
 
@@ -30,6 +31,7 @@ At the begining of the script you have to
 - Set the **DiscordChannel** id you want to publish to with the one you got on the previous step
 - Set the **BotKEY** Discord API key with the Token you got in the previous step
 - You can change the **Location** to your area. It's the one from the "FM over Europe" string in the event. Put "." if you want the whole world.
+- Set the **CalendarURL** to the URL containing the ICS calendar
 
 ### Setup of the script
 
