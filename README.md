@@ -38,7 +38,8 @@ You may need to replace python with python3 on some platforms.
 
 ```
 python -m venv arissenv 
-. arissenv/bin/activate
+source arissenv/bin/activate
+
 ``` 
 
 1. You install the requirements
