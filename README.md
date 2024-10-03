@@ -27,7 +27,11 @@ You will need:
 
 ### Configuration of the script
 
-At the begining of the script you have to
+Copy the `.env.dist` file as `.env` file
+```
+cp .env.dist .env
+```
+Edit the `.env` file to specify
 - Set the **DiscordChannel** id you want to publish to with the one you got on the previous step
 - Set the **BotKEY** Discord API key with the Token you got in the previous step
 - You can change the **Location** to your area. It's the one from the "FM over Europe" string in the event. Put "." if you want the whole world.
