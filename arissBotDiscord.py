@@ -10,19 +10,15 @@ import asyncio
 from icalendar import Calendar
 from datetime import datetime, timedelta, date
 from pytz import UTC
+from dotenv import load_dotenv
 
-#######################################################
-# CONFIGURATION IS HERE
-# id of the discord channel to send logs to
-DiscordChannel = 1234 #  <Discord Channel id to post to>
-# The API Key of the bot
-BotKEY = 'API Key for the bot'
-#
-Mode = 'net' # local to not send to discord
-Location = 'Europe' # FM over Europe only
-CalendarURL=''
-# END OF CONFIGURATION
-#######################################################
+load_dotenv()
+# Reading configuration from .env file@
+BotKEY = os.getenv('DISCORD_BOT_KEY')
+DiscordChannel = int(os.getenv('DiscordChannel'))
+Mode = os.getenv('Mode')
+Location = os.getenv('Location')
+CalendarURL = os.getenv('CalendarURL')
 
 
 # Discord Bot initialization
@@ -30,7 +26,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 client = commands.Bot(command_prefix='!',intents=intents)
 
-Location = ' - FM over ' + Location
+#Location = ' - FM over ' + Location
 
 @client.event
 async def on_ready():
@@ -57,6 +53,8 @@ async def send_msg():
         msg=f"**Summary**:{summary}\n**Date**:{start}\n{content}"
         chunks = shorten_msg(msg)
         channel = client.get_channel(DiscordChannel)
+        print(type(DiscordChannel))
+        print(channel)
         if channel:
           if Mode == 'local':
               print("🛰️  -- **Planned ARISS contact** -- 🛰️n\n\n")
@@ -117,6 +115,7 @@ def get_events_from_ics(url):
 
     for component in cal.walk():
         if component.name == "VEVENT":
+            event_stamp = component.get('dtstamp').dt
             event_start = component.get('dtstart').dt
             event_end = component.get('dtend')
             event_summary = component.get('summary')
@@ -144,6 +143,7 @@ def get_events_from_ics(url):
                   events.append({
                       "start": event_start,
                       "end": event_end,
+                      "stamp": event_stamp,
                       "summary": event_summary,
                       "description": event_desc
                   })

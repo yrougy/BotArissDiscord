@@ -2,3 +2,5 @@ requests
 html2text
 discord
 icalendar
+pytz
+python-dotenv
