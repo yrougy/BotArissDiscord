@@ -69,7 +69,7 @@ async def send_msg():
               print("🛰️   -- EOT ------------\n\n")
           else:
             await channel.send("🛰️  -- EOT ------------\n\n")
-        await client.close()
+    await client.close()
 
 
 def shorten_msg(input_string, byte_limit=1900, encoding='utf-8'):
